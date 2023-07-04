@@ -29,17 +29,21 @@
 
 # Building
    1. Clone the source with `git clone --recursive https://github.com/ISAKEM/R3nzSkin-ISAKM-fork.git`
-   2. ~~Build in Visual Studio 2017/19 with configuration "Your Region - x64"~~
-	  DO NOT USE VISUAL STUDIO 2017/19 IT WILL NOT WORK. VS19 does not have MSVC v143 since the latest for VS19 is v142. I have not tested VS17 but since its older I can guarantee it will not work either.
-	  Minimum installation to be able to build is VS22 installer -> select "Desktop development with C++" -> select these packages: (or components as Microsoft like to call it)
-	  MSVC v143
-	  C++ ATL
-	  C++ profiling tools
-	  C++ CMake tools for Windows
-	  IntelliCode
-	  C++ Modules
-	  Windows 11 SDK (10.0.22621.0)
-	  U dont actually need everything here but personally I think these are the minimum. Difference in size is minimal so its w.e.
+   2. ~~Build in Visual Studio 2017/19 with configuration "Your Region - x64"~~  
+	DO NOT USE VISUAL STUDIO 2017/19 IT WILL NOT WORK.  
+	VS19 does not have MSVC v143 since the latest for VS19 is v142. I have not tested VS17 but since its older I can guarantee it will not work either.  
+	Minimum installation to be able to build is VS22 installer -> select "Desktop development with C++" -> select these packages:  
+	(or components as Microsoft like to call it)
+
+- MSVC v143
+- C++ ATL
+- C++ profiling tools
+- C++ CMake tools for Windows
+- IntelliCode
+- C++ Modules
+- Windows 11 SDK (10.0.22621.0)
+  
+U dont actually need everything here but personally I think these are the minimum. Difference in size is minimal so its w.e.
 	  
 
 # Usage
