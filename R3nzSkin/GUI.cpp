@@ -11,6 +11,12 @@
 #include "fnv_hash.hpp"
 #include "imgui/imgui.h"
 
+#ifdef _WIN32
+#define IM_NEWLINE  "\r\n"
+#else
+#define IM_NEWLINE  "\n"
+#endif
+
 inline static void footer() noexcept
 {
 	using namespace std::string_literals;
@@ -18,6 +24,8 @@ inline static void footer() noexcept
 	ImGui::Separator();
 	ImGui::textUnformattedCentered(buildText.c_str());
 	ImGui::textUnformattedCentered("Copyright (C) 2021-2023 R3nzTheCodeGOD");
+	ImGui::Separator();
+	ImGui::textUnformattedCentered("ISAK.M fork V1.0");
 }
 
 static void changeTurretSkin(const std::int32_t skinId, const std::int32_t team) noexcept
@@ -49,6 +57,37 @@ void GUI::render() noexcept
 	static const auto my_team{ player ? player->get_team() : 100 };
 	static int gear{ player ? player->get_character_data_stack()->base_skin.gear : 0 };
 
+	static bool showdesignEditor = false;
+	if (showdesignEditor)
+	{
+		ImGui::Begin("Design Editor", &showdesignEditor);
+		ImGui::ShowStyleEditor();
+		{
+			static ImGuiTextFilter filter;
+			static ImGuiColorEditFlags alpha_flags = 0;
+			filter.Draw("Filter colors", ImGui::GetFontSize() * 16);
+			
+			ImGuiStyle& style = ImGui::GetStyle();
+			ImGui::SetWindowSize(ImVec2(500, 800), ImGuiCond_FirstUseEver);
+			ImGui::BeginChild("##colors", ImVec2(0, 0), true, ImGuiWindowFlags_AlwaysVerticalScrollbar | ImGuiWindowFlags_AlwaysHorizontalScrollbar | ImGuiWindowFlags_NavFlattened);
+			ImGui::PushItemWidth(-160);
+			for (int i = 0; i < ImGuiCol_COUNT; i++)
+			{
+				const char* name = ImGui::GetStyleColorName(i);
+				if (!filter.PassFilter(name))
+					continue;
+				ImGui::PushID(i);
+				ImGui::ColorEdit4("##color", (float*)&style.Colors[i], ImGuiColorEditFlags_AlphaBar | alpha_flags);
+				ImGui::SameLine(0.0f, style.ItemInnerSpacing.x);
+				ImGui::TextUnformatted(name);
+				ImGui::PopID();
+			}
+			ImGui::PopItemWidth();
+			ImGui::EndChild();
+		}
+		ImGui::End();
+	}
+
 	static const auto vector_getter_skin = [](void* vec, std::int32_t idx, const char** out_text) noexcept {
 		const auto& vector{ *static_cast<std::vector<SkinDatabase::skin_info>*>(vec) };
 		if (idx < 0 || idx > static_cast<std::int32_t>(vector.size())) return false;
@@ -77,7 +116,7 @@ void GUI::render() noexcept
 		return true;
 	};
 
-	ImGui::Begin("R3nzSkin", nullptr, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse | ImGuiWindowFlags_AlwaysAutoResize);
+	ImGui::Begin("R3nzSkin", nullptr, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse | ImGuiWindowFlags_AlwaysAutoResize);
 	{
 		ImGui::rainbowText();
 		if (ImGui::BeginTabBar("TabBar", ImGuiTabBarFlags_Reorderable | ImGuiTabBarFlags_FittingPolicyScroll | ImGuiTabBarFlags_NoTooltip)) {
@@ -85,7 +124,6 @@ void GUI::render() noexcept
 				if (ImGui::BeginTabItem("Local Player")) {
 					auto& values{ cheatManager.database->champions_skins[fnv::hash_runtime(player->get_character_data_stack()->base_skin.model.str)] };
 					ImGui::Text("Player Skins Settings:");
-
 					if (ImGui::Combo("Current Skin", &cheatManager.config->current_combo_skin_index, vector_getter_skin, static_cast<void*>(&values), values.size() + 1))
 						if (cheatManager.config->current_combo_skin_index > 0)
 							player->change_skin(values[cheatManager.config->current_combo_skin_index - 1].model_name, values[cheatManager.config->current_combo_skin_index - 1].skin_id);
@@ -182,10 +220,13 @@ void GUI::render() noexcept
 				ImGui::EndTabItem();
 			}
 
+			
+
 			if (ImGui::BeginTabItem("Extras")) {
 				ImGui::hotkey("Menu Key", cheatManager.config->menuKey);
 				ImGui::Checkbox(cheatManager.config->heroName ? "HeroName based" : "PlayerName based", &cheatManager.config->heroName);
 				ImGui::Checkbox("Rainbow Text", &cheatManager.config->rainbowText);
+				ImGui::Checkbox("Design Editor", &showdesignEditor);
 				ImGui::Checkbox("Quick Skin Change", &cheatManager.config->quickSkinChange);
 				ImGui::hoverInfo("It allows you to change skin without opening the menu with the key you assign from the keyboard.");
 
