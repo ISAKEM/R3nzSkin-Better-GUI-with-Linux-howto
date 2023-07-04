@@ -220,13 +220,13 @@ void GUI::render() noexcept
 				ImGui::EndTabItem();
 			}
 
-			
-
 			if (ImGui::BeginTabItem("Extras")) {
 				ImGui::hotkey("Menu Key", cheatManager.config->menuKey);
 				ImGui::Checkbox(cheatManager.config->heroName ? "HeroName based" : "PlayerName based", &cheatManager.config->heroName);
 				ImGui::Checkbox("Rainbow Text", &cheatManager.config->rainbowText);
-				ImGui::Checkbox("Design Editor", &showdesignEditor);
+				if (ImGui::Button("Design Editor")) {
+					showdesignEditor = true;
+				}
 				ImGui::Checkbox("Quick Skin Change", &cheatManager.config->quickSkinChange);
 				ImGui::hoverInfo("It allows you to change skin without opening the menu with the key you assign from the keyboard.");
 

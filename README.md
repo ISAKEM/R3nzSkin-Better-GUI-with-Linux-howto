@@ -11,7 +11,7 @@
    # **R3nzSkin**
 
    ## Announcement
-   I am currently continuing my military service, and as the place where I am serving is a border region, updates may be delayed or may not arrive.
+   I am not doing any military service unlike the original creator :D (this is a fork)
 
    <img src="https://user-images.githubusercontent.com/58574988/134170370-c827d712-fcc7-432f-b9f8-96678b0c9bf6.gif">
 
@@ -28,11 +28,22 @@
 - <a href="https://github.com/nlohmann/json">JSON</a> based configuration saving & loading
 
 # Building
-   1. Clone the source with `git clone --recursive https://github.com/R3nzTheCodeGOD/R3nzSkin.git`
-   2. Build in Visual Studio 2017/19 with configuration "Your Region - x64"
+   1. Clone the source with `git clone --recursive https://github.com/ISAKEM/R3nzSkin-ISAKM-fork.git`
+   2. ~~Build in Visual Studio 2017/19 with configuration "Your Region - x64"~~
+	  DO NOT USE VISUAL STUDIO 2017/19 IT WILL NOT WORK. VS19 does not have MSVC v143 since the latest for VS19 is v142. I have not tested VS17 but since its older I can guarantee it will not work either.
+	  Minimum installation to be able to build is VS22 installer -> select "Desktop development with C++" -> select these packages: (or components as Microsoft like to call it)
+	  MSVC v143
+	  C++ ATL
+	  C++ profiling tools
+	  C++ CMake tools for Windows
+	  IntelliCode
+	  C++ Modules
+	  Windows 11 SDK (10.0.22621.0)
+	  U dont actually need everything here but personally I think these are the minimum. Difference in size is minimal so its w.e.
+	  
 
 # Usage
-   1. Compile source or <a href="https://github.com/R3nzTheCodeGOD/R3nzSkin/releases/latest">download</a> compiled version.
+   1. Compile source or <a href="https://github.com/ISAKEM/R3nzSkin-ISAKM-fork/releases/latest">download</a> compiled version.
    2. Use `R3nzSkin_Injector` or inject the resulting DLL into the game yourself.
       - *Administrator* privilege may be needed if failed to inject.
       - League client can crash if injected before going into arena.
