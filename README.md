@@ -57,8 +57,10 @@ U dont actually need everything here but personally I think these are the minimu
 
 # How to run R3nzSkin on un*x/linux based systems
 If u already have managed to get League installed on your un*x/linux based system then u probably already know about Lutris. Lutris makes use of a Wine feature to run .exe files in the same Wine prefix as League is running in and this is how we are going to make R3nzSkin work. 
+
 To start off R3nzSkin is just a simple .dll injection at its core so any .dll injector will work. Atleast thats the case on Windows, I have tried many .dll injectors on Arch Linux (yes I use Arch btw blablabla funny meme) and only actually found one that works so we will be using that one.
-<a href="https://github.com/andrewbae/windows-dll-injector">dllRIfle</a>
+
+This one right here: <a href="https://github.com/andrewbae/windows-dll-injector">dllRIfle</a>
 
 Now to use this we just click the triangle button besides the wine icon in Lutris and click "Run EXE inside Wine prefix". 
 Then choose the dllRifle-x64.exe. 
