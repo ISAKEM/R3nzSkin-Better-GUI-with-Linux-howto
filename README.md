@@ -82,6 +82,12 @@ Now u can right click your new "game" and click "Create Desktop shortcut" aswell
 Now if u are running a desktop enviroment with icons u can now launch dllRifle straight from there and have it run in the same prefix as League right away. 
 If u are not running a desktop enviroment with icons or u are running a tiling window manager or anything that does not have icons, then u can still just launch it directly from Lutris or in my case I just add the desktop entry to my dock (Plank). Really any way u have of launching desktop entries and u can launch it directly.
 
+If any1 actually reads this (I doubt any1 will find this lol) and u are having any sort of issues dont hesitate to open an issue here on Github or message me on Discord: 𝙄𝙎𝘼𝙆.𝙈#1654
+
+If u cant add me bcs of these special characters I have then u are free to join this Discord server and ask for me:
+
+<a href="https://discord.gg/blitza">discord.gg/blitza</a>
+
 # Further optimizations
    If your CPU supports AVX / AVX2 / AVX-512 instruction set, you can enable it in project settings. This should result in more performant code, optimized for your CPU. Currently SSE2 instructions are selected in project settings.
 
