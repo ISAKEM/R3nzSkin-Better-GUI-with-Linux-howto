@@ -56,8 +56,9 @@ U dont actually need everything here but personally I think these are the minimu
    4. Select the skin for you, your teammates, enemies, and wards.
 
 # How to run R3nzSkin on un*x/linux based systems
-If u already have managed to get League installed on your un*x/linux based system then u probably already know about Lutris. Lutris makes use of a Wine feature to run .exe files in the same Wine prefix as League is running in and this is how we are going to make R3nzSkin work. To start off R3nzSkin is just a simple .dll injection at its core so any .dll injector will work. Atleast thats the case on Windows, I have tried many .dll injectors on Arch Linux (yes I use Arch btw blablabla funny meme) and only actually found one that works so we will be using that one.
-<a href="https://github.com/andrewbae/windows-dll-injector">
+If u already have managed to get League installed on your un*x/linux based system then u probably already know about Lutris. Lutris makes use of a Wine feature to run .exe files in the same Wine prefix as League is running in and this is how we are going to make R3nzSkin work. 
+To start off R3nzSkin is just a simple .dll injection at its core so any .dll injector will work. Atleast thats the case on Windows, I have tried many .dll injectors on Arch Linux (yes I use Arch btw blablabla funny meme) and only actually found one that works so we will be using that one.
+<a href="https://github.com/andrewbae/windows-dll-injector">dllRIfle</a>
 
 Now to use this we just click the triangle button besides the wine icon in Lutris and click "Run EXE inside Wine prefix". 
 Then choose the dllRifle-x64.exe. 
@@ -76,7 +77,8 @@ usually "~/Games/league-of-legends".
 I have the same settings as league for the rest but honestly I dont think any of that matters it will just work anyways. Just click save when u are done.
 Now u can right click your new "game" and click "Create Desktop shortcut" aswell as "Create application menu shortcut".
 
-Now if u are running a desktop enviroment with icons u can now launch dllRifle straight from there and have it run in the same prefix as League right away. If u are not running a desktop enviroment with icons or u are running a tiling window manager or anything that does not have icons, then u can still just launch it directly from Lutris or in my case I just add the desktop entry to my dock (Plank). Really any way u have of launching desktop entries and u can launch it directly.
+Now if u are running a desktop enviroment with icons u can now launch dllRifle straight from there and have it run in the same prefix as League right away. 
+If u are not running a desktop enviroment with icons or u are running a tiling window manager or anything that does not have icons, then u can still just launch it directly from Lutris or in my case I just add the desktop entry to my dock (Plank). Really any way u have of launching desktop entries and u can launch it directly.
 
 # Further optimizations
    If your CPU supports AVX / AVX2 / AVX-512 instruction set, you can enable it in project settings. This should result in more performant code, optimized for your CPU. Currently SSE2 instructions are selected in project settings.
