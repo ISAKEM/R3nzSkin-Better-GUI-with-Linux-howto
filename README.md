@@ -67,11 +67,15 @@ Then for our "Payload Dll" we choose "R3nzSkin.dll"
 Remember this has to be done in the loading screen or when u are already ingame since League actually needs to be running its not automatic like the R3nzSkin Injector that only targets this one process and sits and waits for it to start.
 
 Now, we can make this even simpler so that we dont have to click "Run EXE inside Wine prefix" every time having to go thru all that. So what we are going to do is to make a seperate Lutris entry and add dllRifle as a game running under the same prefix as League.
+
 So to do this we click the plus at the top left in Lutris then click "Add locally installed game"
 Here u can choose anything for the name, then we pick "dllRifle-x64.exe" for our executable.
-Then the only thing that matters for the rest is that u choose the same directory for "Wine prefix" as League. Its usually "~/Games/league-of-legends".
+Then the only thing that matters for the rest is that u choose the same directory for "Wine prefix" as League. Its 
+usually "~/Games/league-of-legends".
+
 I have the same settings as league for the rest but honestly I dont think any of that matters it will just work anyways. Just click save when u are done.
 Now u can right click your new "game" and click "Create Desktop shortcut" aswell as "Create application menu shortcut".
+
 Now if u are running a desktop enviroment with icons u can now launch dllRifle straight from there and have it run in the same prefix as League right away. If u are not running a desktop enviroment with icons or u are running a tiling window manager or anything that does not have icons, then u can still just launch it directly from Lutris or in my case I just add the desktop entry to my dock (Plank). Really any way u have of launching desktop entries and u can launch it directly.
 
 # Further optimizations
